@@ -8,19 +8,19 @@ import java.time.LocalDate;
  */
 public class User {
 
-    int userId;
-    String userName;
-    String email;
-    String password;
-    String firstName;
-    String lastName;
-    LocalDate registrationDate;
-    boolean isLocked;
-    boolean isConfirmed;
-    String role;
-    LocalDate birthDay;
-    LocalDate lastVisit;
-    String pathToAvatar;
+    private int userId;
+    private String userName;
+    private String email;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private LocalDate registrationDate;
+    private boolean isLocked;
+    private boolean isConfirmed;
+    private String role;
+    private LocalDate birthDay;
+    private LocalDate lastVisit;
+    private String pathToAvatar;
 
     public User() {
     }
@@ -136,5 +136,64 @@ public class User {
 
     public void setPathToAvatar(String pathToAvatar) {
         this.pathToAvatar = pathToAvatar;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (userId != user.userId) return false;
+        if (isLocked != user.isLocked) return false;
+        if (isConfirmed != user.isConfirmed) return false;
+        if (!userName.equals(user.userName)) return false;
+        if (!email.equals(user.email)) return false;
+        if (!password.equals(user.password)) return false;
+        if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
+        if (!registrationDate.equals(user.registrationDate)) return false;
+        if (role != null ? !role.equals(user.role) : user.role != null) return false;
+        if (birthDay != null ? !birthDay.equals(user.birthDay) : user.birthDay != null) return false;
+        if (lastVisit != null ? !lastVisit.equals(user.lastVisit) : user.lastVisit != null) return false;
+        return pathToAvatar != null ? pathToAvatar.equals(user.pathToAvatar) : user.pathToAvatar == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userId;
+        result = 1 * result + userName.hashCode();
+        result = 2 * result + email.hashCode();
+        result = 3 * result + password.hashCode();
+        result = 4 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 5 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 6 * result + registrationDate.hashCode();
+        result = 7 * result + (isLocked ? 1 : 0);
+        result = 8 * result + (isConfirmed ? 1 : 0);
+        result = 9 * result + (role != null ? role.hashCode() : 0);
+        result = 10 * result + (birthDay != null ? birthDay.hashCode() : 0);
+        result = 11 * result + (lastVisit != null ? lastVisit.hashCode() : 0);
+        result = 12 * result + (pathToAvatar != null ? pathToAvatar.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", isLocked=" + isLocked +
+                ", isConfirmed=" + isConfirmed +
+                ", role='" + role + '\'' +
+                ", birthDay=" + birthDay +
+                ", lastVisit=" + lastVisit +
+                ", pathToAvatar='" + pathToAvatar + '\'' +
+                '}';
     }
 }

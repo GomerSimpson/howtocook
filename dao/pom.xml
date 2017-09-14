@@ -17,6 +17,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.howtocook</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
